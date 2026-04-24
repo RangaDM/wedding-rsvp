@@ -7,6 +7,10 @@ const WEDDING_DATE = "2026-06-04T12:00:00"; // ISO format, local time
 const API_URL = ""; // ← Paste your API Gateway URL here after Lambda setup
 //   e.g. 'https://abc123.execute-api.ap-south-1.amazonaws.com/prod/rsvp'
 
+// ── Invite code from URL (optional) ────────────
+const urlParams = new URLSearchParams(window.location.search);
+const inviteCode = urlParams.get("invite");
+
 // ── Page Loader ───────────────────────────────
 window.addEventListener("load", () => {
   setTimeout(() => {
@@ -137,12 +141,55 @@ document.addEventListener("keydown", (e) => {
 });
 
 // ── Hide guests if declining ──────────────────
-document
-  .getElementById("rsvpAttendance")
-  .addEventListener("change", function () {
-    document.getElementById("guestsWrap").style.display =
-      this.value === "no" ? "none" : "block";
+const rsvpAttendanceEl = document.getElementById("rsvpAttendance");
+if (rsvpAttendanceEl) {
+  rsvpAttendanceEl.addEventListener("change", function () {
+    const wrap = document.getElementById("guestsWrap");
+    if (!wrap) return;
+    wrap.style.display = this.value === "no" ? "none" : "block";
+
+    const card = document.getElementById("rsvpCard");
+    const formWrap = document.getElementById("rsvpFormWrap");
+    const declineNote = document.getElementById("rsvpDeclineNote");
+    const success = document.getElementById("rsvpSuccess");
+    if (success) success.style.display = "none";
+
+    if (card) card.style.display = this.value ? "block" : "none";
+    if (formWrap) formWrap.style.display = this.value === "yes" ? "block" : "none";
+    if (declineNote)
+      declineNote.style.display = this.value === "no" ? "block" : "none";
   });
+}
+
+// ── Floating RSVP CTA + quick-choice buttons ───
+function setAttendance(value) {
+  const attendance = document.getElementById("rsvpAttendance");
+  if (!attendance) return;
+  attendance.value = value;
+  attendance.dispatchEvent(new Event("change", { bubbles: true }));
+}
+
+document.querySelectorAll("[data-attendance]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const value = btn.getAttribute("data-attendance");
+    if (value) setAttendance(value);
+  });
+});
+
+const floatingRsvp = document.getElementById("floatingRsvp");
+const rsvpSection = document.getElementById("rsvp");
+if (floatingRsvp && rsvpSection) {
+  const hideObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) floatingRsvp.classList.add("hidden");
+        else floatingRsvp.classList.remove("hidden");
+      });
+    },
+    { threshold: 0.15 },
+  );
+  hideObserver.observe(rsvpSection);
+}
 
 // ── RSVP Form Submission ──────────────────────
 async function submitRSVP() {
@@ -177,7 +224,7 @@ async function submitRSVP() {
   }
 
   const payload = {
-    inviteCode: inviteCode, // ADD THIS LINE
+    inviteCode,
     name,
     email,
     phone,
@@ -219,55 +266,45 @@ async function submitRSVP() {
     resetButton();
   }
 
-  // ── DYNAMIC INVITATION LOGIC ──────────────────
-  // 1. Grab the ?invite= parameter from the URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const inviteCode = urlParams.get("invite");
+}
 
-  // 2. Fetch the guest data
-  async function fetchGuestData() {
-    // If there's no code in the URL, just show the normal generic website
-    if (!inviteCode) return;
+// ── Dynamic invitation greeting (optional) ─────
+async function fetchGuestData() {
+  if (!inviteCode) return;
 
-    try {
-      /* TODO: Once AWS is set up, uncomment this to call your real API Gateway
-      const res = await fetch(`${API_URL}?code=${inviteCode}`);
-      const data = await res.json();
+  try {
+    /* TODO: Once AWS is set up, uncomment this to call your real API Gateway
+    const res = await fetch(`${API_URL}?code=${inviteCode}`);
+    const data = await res.json();
     */
 
-      // MOCK DATA for local testing right now:
-      const data = {
-        GuestName: "Honored Guest",
-        Quote: "We can't wait to celebrate with you!",
-      };
+    // MOCK DATA for local testing right now:
+    const data = {
+      GuestName: "Honored Guest",
+      Quote: "We can't wait to celebrate with you!",
+    };
 
-      // 3. Unhide the greeting container and inject the text
-      const greetingContainer = document.getElementById(
-        "personalized-greeting",
-      );
-      const nameDisplay = document.getElementById("guest-name");
-      const quoteDisplay = document.getElementById("guest-quote");
+    const greetingContainer = document.getElementById("personalized-greeting");
+    const nameDisplay = document.getElementById("guest-name");
+    const quoteDisplay = document.getElementById("guest-quote");
 
-      if (greetingContainer && nameDisplay && quoteDisplay) {
-        greetingContainer.style.display = "block";
-        nameDisplay.textContent = `Welcome, ${data.GuestName}`;
-        quoteDisplay.textContent = data.Quote;
-      }
-
-      // 4. Auto-fill the RSVP form so they don't have to type their name
-      const rsvpNameInput = document.getElementById("rsvpName");
-      if (rsvpNameInput) {
-        rsvpNameInput.value = data.GuestName;
-        rsvpNameInput.readOnly = true; // Locks the field so they can't change it
-      }
-    } catch (error) {
-      console.error("Error fetching guest data:", error);
+    if (greetingContainer && nameDisplay && quoteDisplay) {
+      greetingContainer.style.display = "block";
+      nameDisplay.textContent = `Welcome, ${data.GuestName}`;
+      quoteDisplay.textContent = data.Quote;
     }
-  }
 
-  // Run this function immediately when the DOM is ready
-  document.addEventListener("DOMContentLoaded", fetchGuestData);
+    const rsvpNameInput = document.getElementById("rsvpName");
+    if (rsvpNameInput) {
+      rsvpNameInput.value = data.GuestName;
+      rsvpNameInput.readOnly = true;
+    }
+  } catch (error) {
+    console.error("Error fetching guest data:", error);
+  }
 }
+
+document.addEventListener("DOMContentLoaded", fetchGuestData);
 
 function showSuccess(attendance) {
   document.getElementById("rsvpForm").style.display = "none";

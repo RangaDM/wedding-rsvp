@@ -205,6 +205,108 @@
     </section>
 
     <!-- ═══════════════════════════════
+         RSVP
+    ═══════════════════════════════ -->
+    <section id="rsvp" class="section-rsvp">
+      <div class="section-bg-overlay"></div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 text-center section-heading">
+            <span class="section-sub">KINDLY REPLY</span>
+            <h2 class="rsvp-heading">Dear guest will you be joining us?</h2>
+            <div class="heading-divider">✦ ✦ ✦</div>
+
+            <div class="rsvp-choice" aria-label="RSVP quick choice">
+              <a href="#rsvp" class="rsvp-choice-btn rsvp-accept" data-attendance="yes">Joyfully Accept</a>
+              <a href="#rsvp" class="rsvp-choice-btn rsvp-decline" data-attendance="no">Regretful Declines</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="rsvp-card animate-on-scroll" id="rsvpCard" style="display:none;">
+              <div id="rsvpFormWrap" style="display:none;">
+                <form id="rsvpForm" onsubmit="event.preventDefault(); submitRSVP();">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <input id="rsvpName" class="rsvp-input" type="text" placeholder="Your Name *" autocomplete="name">
+                  </div>
+                  <div class="col-md-6">
+                    <input id="rsvpEmail" class="rsvp-input" type="email" placeholder="Email Address *"
+                      autocomplete="email">
+                  </div>
+                  <div class="col-md-6">
+                    <input id="rsvpPhone" class="rsvp-input" type="tel" placeholder="Phone (optional)"
+                      autocomplete="tel">
+                  </div>
+                  <div class="col-md-6">
+                    <select id="rsvpAttendance" class="rsvp-input" aria-label="Attendance">
+                      <option value="" selected disabled>Will you attend? *</option>
+                      <option value="yes">Yes, joyfully accept</option>
+                      <option value="no">No, regretfully decline</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6" id="guestsWrap">
+                    <select id="rsvpGuests" class="rsvp-input" aria-label="Number of guests">
+                      <option value="0">Guests: 0</option>
+                      <option value="1" selected>Guests: 1</option>
+                      <option value="2">Guests: 2</option>
+                      <option value="3">Guests: 3</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <select id="rsvpEvent" class="rsvp-input" aria-label="Event selection">
+                      <option value="" selected disabled>Select event(s) *</option>
+                      <option value="poruwa">Poruwa Ceremony</option>
+                      <option value="ceremony">Wedding Ceremony</option>
+                      <option value="both">Both</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <select id="rsvpDiet" class="rsvp-input" aria-label="Dietary preferences">
+                      <option value="" selected>Dietary preferences (optional)</option>
+                      <option value="none">No restrictions</option>
+                      <option value="vegetarian">Vegetarian</option>
+                      <option value="vegan">Vegan</option>
+                      <option value="halal">Halal</option>
+                      <option value="other">Other (mention below)</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <textarea id="rsvpMessage" class="rsvp-input" placeholder="Message (optional)"></textarea>
+                  </div>
+                </div>
+
+                <div id="rsvpError" class="rsvp-error" style="display:none;"></div>
+
+                <div class="text-center mt-4">
+                  <button id="rsvpSubmit" class="btn-wedding" type="submit">
+                    <span id="btnText">Send RSVP</span>
+                    <span id="btnLoader" style="display:none;">Sending…</span>
+                  </button>
+                </div>
+                </form>
+              </div>
+
+              <div id="rsvpDeclineNote" class="rsvp-decline-note text-center" style="display:none;">
+                <h3>Thank you</h3>
+                <p>We’ll miss you, but we truly appreciate your reply.</p>
+              </div>
+
+              <div id="rsvpSuccess" class="rsvp-success text-center" style="display:none;">
+                <span class="success-heart">♥</span>
+                <h3>Thank you</h3>
+                <p id="successMsg"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════
          FOOTER
     ═══════════════════════════════ -->
     <footer class="wedding-footer">
@@ -222,6 +324,14 @@
     </a>
 
   </div><!-- end #page -->
+
+  <!-- Floating RSVP CTA (shows until RSVP section) -->
+  <div class="floating-rsvp" id="floatingRsvp" aria-label="Confirm RSVP">
+    <div class="floating-rsvp-inner">
+      <!-- <div class="floating-rsvp-title">Confirm RSVP</div> -->
+      <a href="#rsvp" class="floating-rsvp-btn floating-confirm">Confirm RSVP</a>
+    </div>
+  </div>
 
   <!-- Bootstrap 5 JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
