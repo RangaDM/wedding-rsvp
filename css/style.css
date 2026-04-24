@@ -636,6 +636,16 @@ textarea.rsvp-input { resize: vertical; min-height: 90px; }
   .countdown-item { min-width: 42px; }
 
   .hero-names { font-size: 3.5rem; }
+
+  .hero-names .hero-name,
+  .hero-names .hero-amp {
+    display: block;
+  }
+
+  .hero-names .hero-amp {
+    font-size: 0.8em;
+    opacity: 0.9;
+  }
 }
 
 @media (max-width: 480px) {

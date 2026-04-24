@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +17,9 @@
   <meta property="og:type" content="website">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sacramento&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Work+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
 
   <!-- Bootstrap 5 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
@@ -30,6 +33,7 @@
   <!-- Main styles -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
   <!-- Loader -->
@@ -68,13 +72,25 @@
         <div class="row h-100 align-items-center justify-content-center">
           <div class="col-md-8 text-center hero-content animate__animated animate__fadeIn">
             <p class="hero-pre">Together with their families</p>
-            <h1 class="hero-names">Bride &amp; Groom</h1>
+            <h1 class="hero-names">
+              <span class="hero-name">Ireshika</span>
+              <span class="hero-amp">&amp;</span>
+              <span class="hero-name">Dimuthu</span>
+            </h1>
             <div class="hero-divider">
               <span class="divider-line"></span>
               <span class="divider-heart">♥</span>
               <span class="divider-line"></span>
             </div>
-            <h2 class="hero-date">29 · 10 · 2025</h2>
+            <h2 class="hero-date">04 · 06 · 2026</h2>
+
+            <div id="personalized-greeting" style="display: none; margin-bottom: 20px;">
+              <h3 id="guest-name"
+                style="color: var(--white); font-family: var(--font-serif); font-size: 2rem; margin-bottom: 5px;"></h3>
+              <p id="guest-quote"
+                style="color: var(--gold-light); font-style: italic; font-size: 1.1rem; letter-spacing: 1px;"></p>
+            </div>
+
             <p class="hero-verse">"I have found the one whom my soul loves."<br><em>Song of Solomon 3:4</em></p>
 
             <!-- Countdown -->
@@ -128,28 +144,28 @@
           <div class="col-md-5">
             <div class="event-card animate-on-scroll">
               <div class="event-icon"><i class="fa fa-church"></i></div>
-              <h3>Wedding Ceremony</h3>
+              <h3>Poruwa Ceremony</h3>
               <div class="event-details">
                 <div class="event-detail-row">
                   <i class="fa fa-calendar"></i>
-                  <span>29 October 2025</span>
+                  <span>04 June 2026</span>
                 </div>
                 <div class="event-detail-row">
                   <i class="fa fa-clock"></i>
-                  <span>12:00 PM</span>
+                  <span>08:30 AM</span>
                 </div>
                 <div class="event-detail-row">
                   <i class="fa fa-map-marker-alt"></i>
-                  <span>St. Mary's Church, City Name</span>
+                  <span>The Amaya Lake Dambulla</span>
                 </div>
               </div>
-              <p class="event-note">Followed by lunch at <strong>Reception Hall, Venue Name</strong></p>
+              <!-- <p class="event-note">Followed by lunch at <strong>Reception Hall, Venue Name</strong></p> -->
               <!-- Replace src with your actual Google Maps embed URL -->
               <div class="event-map">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.690238117892!2d76.24293817588756!3d10.124421489987455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0810402ea732f5%3A0x7e23209bf83c2a9b!2sSt.Antony's%20Roman%20Catholic%20Church!5e0!3m2!1sen!2sin!4v1696094216568!5m2!1sen!2sin"
-                  width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy">
-                </iframe>
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.0049431745147!2d80.69742217481866!3d7.894550405714512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afca5ca4067a0f5%3A0xcde306261dd4d5bb!2sAmaya%20Lake%20Dambulla!5e0!3m2!1sen!2slk!4v1777031146951!5m2!1sen!2slk"
+                  width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
           </div>
@@ -158,80 +174,32 @@
           <div class="col-md-5">
             <div class="event-card animate-on-scroll" style="animation-delay:0.2s">
               <div class="event-icon"><i class="fa fa-glass-cheers"></i></div>
-              <h3>Wedding Reception</h3>
+              <h3>Wedding Ceremony</h3>
               <div class="event-details">
                 <div class="event-detail-row">
                   <i class="fa fa-calendar"></i>
-                  <span>29 October 2025</span>
+                  <span>04 June 2026</span>
                 </div>
                 <div class="event-detail-row">
                   <i class="fa fa-clock"></i>
-                  <span>7:00 PM</span>
+                  <span>10:00 AM</span>
                 </div>
                 <div class="event-detail-row">
                   <i class="fa fa-map-marker-alt"></i>
-                  <span>Grand Ballroom, Venue Name</span>
+                  <span>Hotel Sannasa, Kandalama Road, Dambulla</span>
                 </div>
               </div>
-              <p class="event-note">Dinner, dancing and celebration with <strong>family and friends</strong></p>
+              <!-- <p class="event-note">Dinner, dancing and celebration with <strong>family and friends</strong></p> -->
               <!-- Replace src with your actual Google Maps embed URL -->
               <div class="event-map">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.673315773661!2d75.71257847590881!3d11.927808088299846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba5cd2b69442ebf%3A0x41b4e77a403a15b4!2sDe%20Paul%20Church%2C%20Edathotty!5e0!3m2!1sen!2sin!4v1696094112600!5m2!1sen!2sin"
-                  width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy">
-                </iframe>
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.34503389865!2d80.6620717!3d7.8589127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afca563bec1ac71%3A0xa29c83c595502575!2sHotel%20Sannasa!5e0!3m2!1sen!2slk!4v1777031010203!5m2!1sen!2slk"
+                  width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
           </div>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════
-         GALLERY
-    ═══════════════════════════════ -->
-    <section id="gallery" class="section-gallery">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-8 text-center section-heading">
-            <span class="section-sub">Our Story</span>
-            <h2>Gallery</h2>
-            <div class="heading-divider">✦ ✦ ✦</div>
-          </div>
-        </div>
-        <div class="gallery-grid" id="galleryGrid">
-          <!-- Add your real image paths in images/gallery/ -->
-          <div class="gallery-item animate-on-scroll" style="background-image: url('images/gallery/photo1.jpg')">
-            <a href="images/gallery/photo1.jpg" class="gallery-link" data-lightbox="wedding">
-              <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
-            </a>
-          </div>
-          <div class="gallery-item animate-on-scroll" style="background-image: url('images/gallery/photo2.jpg')">
-            <a href="images/gallery/photo2.jpg" class="gallery-link" data-lightbox="wedding">
-              <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
-            </a>
-          </div>
-          <div class="gallery-item animate-on-scroll" style="background-image: url('images/gallery/photo3.jpg')">
-            <a href="images/gallery/photo3.jpg" class="gallery-link" data-lightbox="wedding">
-              <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
-            </a>
-          </div>
-          <div class="gallery-item animate-on-scroll" style="background-image: url('images/gallery/photo4.jpg')">
-            <a href="images/gallery/photo4.jpg" class="gallery-link" data-lightbox="wedding">
-              <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
-            </a>
-          </div>
-          <div class="gallery-item animate-on-scroll" style="background-image: url('images/gallery/photo5.jpg')">
-            <a href="images/gallery/photo5.jpg" class="gallery-link" data-lightbox="wedding">
-              <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
-            </a>
-          </div>
-          <div class="gallery-item animate-on-scroll" style="background-image: url('images/gallery/photo6.jpg')">
-            <a href="images/gallery/photo6.jpg" class="gallery-link" data-lightbox="wedding">
-              <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
-            </a>
-          </div>
         </div>
       </div>
     </section>
@@ -242,7 +210,7 @@
     <footer class="wedding-footer">
       <div class="container text-center">
         <p class="footer-names">Bride &amp; Groom</p>
-        <p class="footer-date">29 · 10 · 2025</p>
+        <p class="footer-date">04 · 06 · 2026</p>
         <div class="footer-divider">♥</div>
         <p class="footer-copy">Made with love ♥</p>
       </div>
@@ -262,4 +230,5 @@
   <script src="js/main.js"></script>
 
 </body>
+
 </html>
