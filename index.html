@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Names ❤️ Wedding</title>
+  <meta name="description" content="Join us for our special day — RSVP now." />
+
+  <!-- OG / WhatsApp sharing -->
+  <meta property="og:title" content="We're Getting Married! ❤️">
+  <meta property="og:description" content="Join us for our special day — RSVP now.">
+  <meta property="og:image" content="images/og.jpg">
+  <meta property="og:image:width" content="300">
+  <meta property="og:image:height" content="300">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- Main styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Loader -->
+  <div class="site-loader" id="siteLoader">
+    <div class="loader-heart">♥</div>
+  </div>
+
+  <div id="page">
+
+    <!-- ═══════════════════════════════
+         NAV
+    ═══════════════════════════════ -->
+    <nav class="wedding-nav" id="mainNav">
+      <div class="container">
+        <div class="nav-inner">
+          <a class="nav-brand" href="#hero">❤️</a>
+          <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#rsvp">RSVP</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════════
+         HERO
+    ═══════════════════════════════ -->
+    <header id="hero" class="hero-cover" style="background-image: url('images/bg.jpg');">
+      <div class="hero-overlay"></div>
+      <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center">
+          <div class="col-md-8 text-center hero-content animate__animated animate__fadeIn">
+            <p class="hero-pre">Together with their families</p>
+            <h1 class="hero-names">Bride &amp; Groom</h1>
+            <div class="hero-divider">
+              <span class="divider-line"></span>
+              <span class="divider-heart">♥</span>
+              <span class="divider-line"></span>
+            </div>
+            <h2 class="hero-date">29 · 10 · 2025</h2>
+            <p class="hero-verse">"I have found the one whom my soul loves."<br><em>Song of Solomon 3:4</em></p>
+
+            <!-- Countdown -->
+            <div class="countdown-wrap" id="countdown">
+              <div class="countdown-item">
+                <span class="countdown-num" id="cd-days">00</span>
+                <span class="countdown-label">Days</span>
+              </div>
+              <div class="countdown-sep">:</div>
+              <div class="countdown-item">
+                <span class="countdown-num" id="cd-hours">00</span>
+                <span class="countdown-label">Hours</span>
+              </div>
+              <div class="countdown-sep">:</div>
+              <div class="countdown-item">
+                <span class="countdown-num" id="cd-mins">00</span>
+                <span class="countdown-label">Minutes</span>
+              </div>
+              <div class="countdown-sep">:</div>
+              <div class="countdown-item">
+                <span class="countdown-num" id="cd-secs">00</span>
+                <span class="countdown-label">Seconds</span>
+              </div>
+            </div>
+
+            <a href="#events" class="btn-wedding-outline">Save Our Date</a>
+          </div>
+        </div>
+      </div>
+      <a href="#events" class="hero-scroll-arrow">
+        <i class="fa fa-chevron-down"></i>
+      </a>
+    </header>
+
+    <!-- ═══════════════════════════════
+         EVENTS
+    ═══════════════════════════════ -->
+    <section id="events" class="section-events">
+      <div class="section-bg-overlay"></div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 text-center section-heading">
+            <span class="section-sub">Mark Your Calendar</span>
+            <h2>Events</h2>
+            <div class="heading-divider">✦ ✦ ✦</div>
+          </div>
+        </div>
+        <div class="row g-4 justify-content-center">
+
+          <!-- Event 1: Ceremony -->
+          <div class="col-md-5">
+            <div class="event-card animate-on-scroll">
+              <div class="event-icon"><i class="fa fa-church"></i></div>
+              <h3>Wedding Ceremony</h3>
+              <div class="event-details">
+                <div class="event-detail-row">
+                  <i class="fa fa-calendar"></i>
+                  <span>29 October 2025</span>
+                </div>
+                <div class="event-detail-row">
+                  <i class="fa fa-clock"></i>
+                  <span>12:00 PM</span>
+                </div>
+                <div class="event-detail-row">
+                  <i class="fa fa-map-marker-alt"></i>
+                  <span>St. Mary's Church, City Name</span>
+                </div>
+              </div>
+              <p class="event-note">Followed by lunch at <strong>Reception Hall, Venue Name</strong></p>
+              <!-- Replace src with your actual Google Maps embed URL -->
+              <div class="event-map">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.690238117892!2d76.24293817588756!3d10.124421489987455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0810402ea732f5%3A0x7e23209bf83c2a9b!2sSt.Antony's%20Roman%20Catholic%20Church!5e0!3m2!1sen!2sin!4v1696094216568!5m2!1sen!2sin"
+                  width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 2: Reception -->
+          <div class="col-md-5">
+            <div class="event-card animate-on-scroll" style="animation-delay:0.2s">
+              <div class="event-icon"><i class="fa fa-glass-cheers"></i></div>
+              <h3>Wedding Reception</h3>
+              <div class="event-details">
+                <div class="event-detail-row">
+                  <i class="fa fa-calendar"></i>
+                  <span>29 October 2025</span>
+                </div>
+                <div class="event-detail-row">
+                  <i class="fa fa-clock"></i>
+                  <span>7:00 PM</span>
+                </div>
+                <div class="event-detail-row">
+                  <i class="fa fa-map-marker-alt"></i>
+                  <span>Grand Ballroom, Venue Name</span>
+                </div>
+              </div>
+              <p class="event-note">Dinner, dancing and celebration with <strong>family and friends</strong></p>
+              <!-- Replace src with your actual Google Maps embed URL -->
+              <div class="event-map">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.673315773661!2d75.71257847590881!3d11.927808088299846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba5cd2b69442ebf%3A0x41b4e77a403a15b4!2sDe%20Paul%20Church%2C%20Edathotty!5e0!3m2!1sen!2sin!4v1696094112600!5m2!1sen!2sin"
+                  width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════
+         GALLERY
+    ═══════════════════════════════ -->
+    <section id="gallery" class="section-gallery">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 text-center section-heading">
+            <span class="section-sub">Our Story</span>
+            <h2>Gallery</h2>
+            <div class="heading-divider">✦ ✦ ✦</div>
+          </div>
+        </div>
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Add your real image paths in images/gallery/ -->
+          <div class="gallery-item animate-on-scroll" style="background-image: url('images/gallery/photo1.jpg')">
+            <a href="images/gallery/photo1.jpg" class="gallery-link" data-lightbox="wedding">
+              <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
+            </a>
+          </div>
+          <div class="gallery-item animate-on-scroll" style="background-image: url('images/gallery/photo2.jpg')">
+            <a href="images/gallery/photo2.jpg" class="gallery-link" data-lightbox="wedding">
+              <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
+            </a>
+          </div>
+          <div class="gallery-item animate-on-scroll" style="background-image: url('images/gallery/photo3.jpg')">
+            <a href="images/gallery/photo3.jpg" class="gallery-link" data-lightbox="wedding">
+              <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
+            </a>
+          </div>
+          <div class="gallery-item animate-on-scroll" style="background-image: url('images/gallery/photo4.jpg')">
+            <a href="images/gallery/photo4.jpg" class="gallery-link" data-lightbox="wedding">
+              <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
+            </a>
+          </div>
+          <div class="gallery-item animate-on-scroll" style="background-image: url('images/gallery/photo5.jpg')">
+            <a href="images/gallery/photo5.jpg" class="gallery-link" data-lightbox="wedding">
+              <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
+            </a>
+          </div>
+          <div class="gallery-item animate-on-scroll" style="background-image: url('images/gallery/photo6.jpg')">
+            <a href="images/gallery/photo6.jpg" class="gallery-link" data-lightbox="wedding">
+              <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════
+         FOOTER
+    ═══════════════════════════════ -->
+    <footer class="wedding-footer">
+      <div class="container text-center">
+        <p class="footer-names">Bride &amp; Groom</p>
+        <p class="footer-date">29 · 10 · 2025</p>
+        <div class="footer-divider">♥</div>
+        <p class="footer-copy">Made with love ♥</p>
+      </div>
+    </footer>
+
+    <!-- Back to top -->
+    <a href="#hero" class="back-to-top" id="backToTop">
+      <i class="fa fa-arrow-up"></i>
+    </a>
+
+  </div><!-- end #page -->
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Main JS -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
