@@ -3,9 +3,9 @@
 ═══════════════════════════════════════════════ */
 
 // ── CONFIG — update these values ─────────────
-const WEDDING_DATE = "2026-06-04T12:00:00"; // ISO format, local time
-const API_URL = ""; // ← Paste your API Gateway URL here after Lambda setup
-//   e.g. 'https://abc123.execute-api.ap-south-1.amazonaws.com/prod/rsvp'
+const WEDDING_DATE = "2026-06-04T08:30:00"; // ISO format, local time
+const API_URL = "";
+
 
 // ── Invite code from URL (optional) ────────────
 const urlParams = new URLSearchParams(window.location.search);
@@ -183,7 +183,7 @@ if (floatingRsvp && rsvpSection) {
 // ── RSVP Form Submission ──────────────────────
 async function submitRSVP() {
   const name = document.getElementById("rsvpName").value.trim();
-  const attendance = document.getElementById("rsvpForm")?.dataset?.attendance || "";
+  const attendance = document.getElementById("rsvpForm")?.dataset?.attendance || "yes";
   const guests = document.getElementById("rsvpGuests").value;
   const message = document.getElementById("rsvpMessage").value.trim();
 
@@ -199,7 +199,7 @@ async function submitRSVP() {
     showError("Please let us know if you will attend.");
     return;
   }
-  if (attendance !== "yes") return;
+  // Removed the line that was blocking "Decline" submissions so they save to the DB
 
   const payload = {
     inviteCode,
@@ -239,7 +239,6 @@ async function submitRSVP() {
     showError("Network error. Please check your connection and try again.");
     resetButton();
   }
-
 }
 
 // ── Dynamic invitation greeting (optional) ─────
