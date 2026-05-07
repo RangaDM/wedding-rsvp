@@ -140,33 +140,22 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeLightbox();
 });
 
-// ── Hide guests if declining ──────────────────
-const rsvpAttendanceEl = document.getElementById("rsvpAttendance");
-if (rsvpAttendanceEl) {
-  rsvpAttendanceEl.addEventListener("change", function () {
-    const wrap = document.getElementById("guestsWrap");
-    if (!wrap) return;
-    wrap.style.display = this.value === "no" ? "none" : "block";
-
-    const card = document.getElementById("rsvpCard");
-    const formWrap = document.getElementById("rsvpFormWrap");
-    const declineNote = document.getElementById("rsvpDeclineNote");
-    const success = document.getElementById("rsvpSuccess");
-    if (success) success.style.display = "none";
-
-    if (card) card.style.display = this.value ? "block" : "none";
-    if (formWrap) formWrap.style.display = this.value === "yes" ? "block" : "none";
-    if (declineNote)
-      declineNote.style.display = this.value === "no" ? "block" : "none";
-  });
-}
-
 // ── Floating RSVP CTA + quick-choice buttons ───
 function setAttendance(value) {
-  const attendance = document.getElementById("rsvpAttendance");
-  if (!attendance) return;
-  attendance.value = value;
-  attendance.dispatchEvent(new Event("change", { bubbles: true }));
+  const wrap = document.getElementById("guestsWrap");
+  const card = document.getElementById("rsvpCard");
+  const formWrap = document.getElementById("rsvpFormWrap");
+  const declineNote = document.getElementById("rsvpDeclineNote");
+  const success = document.getElementById("rsvpSuccess");
+  const form = document.getElementById("rsvpForm");
+
+  if (form) form.dataset.attendance = value || "";
+  if (success) success.style.display = "none";
+
+  if (card) card.style.display = value ? "block" : "none";
+  if (formWrap) formWrap.style.display = value === "yes" ? "block" : "none";
+  if (declineNote) declineNote.style.display = value === "no" ? "block" : "none";
+  if (wrap) wrap.style.display = value === "no" ? "none" : "block";
 }
 
 document.querySelectorAll("[data-attendance]").forEach((btn) => {
@@ -194,12 +183,8 @@ if (floatingRsvp && rsvpSection) {
 // ── RSVP Form Submission ──────────────────────
 async function submitRSVP() {
   const name = document.getElementById("rsvpName").value.trim();
-  const email = document.getElementById("rsvpEmail").value.trim();
-  const phone = document.getElementById("rsvpPhone").value.trim();
-  const attendance = document.getElementById("rsvpAttendance").value;
+  const attendance = document.getElementById("rsvpForm")?.dataset?.attendance || "";
   const guests = document.getElementById("rsvpGuests").value;
-  const event = document.getElementById("rsvpEvent").value;
-  const diet = document.getElementById("rsvpDiet").value;
   const message = document.getElementById("rsvpMessage").value.trim();
 
   const errorEl = document.getElementById("rsvpError");
@@ -210,28 +195,17 @@ async function submitRSVP() {
     showError("Please enter your name.");
     return;
   }
-  if (!email || !email.includes("@")) {
-    showError("Please enter a valid email address.");
-    return;
-  }
   if (!attendance) {
     showError("Please let us know if you will attend.");
     return;
   }
-  if (!event) {
-    showError("Please select which event(s) you will attend.");
-    return;
-  }
+  if (attendance !== "yes") return;
 
   const payload = {
     inviteCode,
     name,
-    email,
-    phone,
     attendance,
     guests: attendance === "no" ? 0 : parseInt(guests),
-    event,
-    diet,
     message,
   };
 
